@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import AuthTrack from './navigations/AuthTrack'
+import { Provider } from 'react-redux'
+import { store } from './store'
+import React from 'react'
+import { ApplicationProvider, Layout, Text } from '@ui-kitten/components'
+import * as eva from '@eva-design/eva'
+import { default as mapping } from './custom_ui_kitten.json'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <ApplicationProvider customMapping={mapping} {...eva} theme={eva.light}>
+        <Provider store={store}>
+          <AuthTrack />
+        </Provider>
+      </ApplicationProvider>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

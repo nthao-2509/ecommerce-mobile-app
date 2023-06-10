@@ -1,0 +1,25 @@
+{
+  "components": {
+    "Card": {
+      "meta": {
+        "scope": "mobile",
+        "parameters": {},
+        "variantGroups": {},
+        "states": {},
+        "appearances": {
+          "filled": {
+            "default": true
+          }
+        }
+      },
+      "appearances": {
+        "outline": {
+          "mapping": {
+            "bodyPaddingHorizontal": -16,
+            "bodyPaddingVertical": -16
+          }
+        }
+      }
+    }
+  }
+}
