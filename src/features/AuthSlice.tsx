@@ -85,7 +85,6 @@ export const authSlice = createSlice({
         state.isLoading = true
       })
       .addCase(checkLogin.fulfilled, (state: any, action: any) => {
-        console.log('🚀 ~ file: AuthSlice.tsx:113 ~ .addCase ~ action:', action.payload)
         // console.log("🚀 ~ file: AuthSlice.tsx:113 ~ .addCase ~ state:", state)
         state.isLoading = false
         state.isSuccess = true

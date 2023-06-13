@@ -8,14 +8,14 @@ const Header = () => {
   const [value, setValue] = React.useState('')
   return (
     <View style={styles.flex}>
-      <TouchableOpacity>
+      {/* <TouchableOpacity>
         <Icon name='scan-outline' size={30} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <Input
         style={{
           flex: 1,
         }}
-        placeholder='Place your Text'
+        placeholder='Tìm kiếm'
         value={value}
         onChangeText={(nextValue) => setValue(nextValue)}
         accessoryRight={

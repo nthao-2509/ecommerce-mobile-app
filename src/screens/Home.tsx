@@ -8,11 +8,17 @@ import GoogleMap from '../components/Home/GoogleMap'
 import IndexBottomSheet from '../components/BottomSheet'
 import ProductPortfolio from '../components/Home/ProductPortfolio'
 import Product from '../components/Home/Product'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../store'
+import { selectFavorites } from '../features/FavoritesSlice'
 
 const Home = () => {
   const [textPickUpPoint, setTextPickUpPoint] = useState<string>('')
   const [textYourPoint, setTextYourPoint] = useState<string>('')
-
+  const dispatch = useDispatch<AppDispatch>()
+  React.useEffect(() => {
+    dispatch(selectFavorites())
+  }, [dispatch])
   return (
     <Container>
       {/* <GoogleMap /> */}

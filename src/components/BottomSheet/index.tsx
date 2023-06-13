@@ -6,11 +6,11 @@ import Colors from '../../modules/Colors'
 type Props = {
   children?: any
   snapPoints: string[]
+  open?: boolean
 }
 
 const IndexBottomSheet = ({ children, snapPoints }: Props) => {
   const sheetRef = useRef<BottomSheet>(null)
-  const [isOpen, setIsOpen] = useState(true)
 
   return (
     <BottomSheet ref={sheetRef} snapPoints={snapPoints} enablePanDownToClose={true}>

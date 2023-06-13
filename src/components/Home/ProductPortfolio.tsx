@@ -19,14 +19,15 @@ const ProductPortfolio = () => {
   return (
     <View>
       <View style={styles.cards}>
-        {arrayProductPortfolio?.map((item: { code: string; name: string; id: string }) => (
-          <TouchableOpacity style={styles.card} key={item.id}>
-            <View style={styles.ViewImage}>
-              <Image source={{ uri: `${URL_HOST}/image/2000.webp` }} resizeMode='contain' style={styles.image} />
-            </View>
-            <Text style={styles.textEducation}>{item.name}</Text>
-          </TouchableOpacity>
-        ))}
+       
+            {arrayProductPortfolio?.map((item: { code: string; name: string; id: string }) => (
+              <TouchableOpacity style={styles.card} key={item.id}>
+                <View style={styles.ViewImage}>
+                  <Image source={{ uri: `${URL_HOST}/image/2000.webp` }} resizeMode='contain' style={styles.image} />
+                </View>
+                <Text style={styles.textEducation}>{item.name}</Text>
+              </TouchableOpacity>
+            ))}
       </View>
     </View>
   )

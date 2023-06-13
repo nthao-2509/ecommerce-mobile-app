@@ -6,13 +6,14 @@ import React from 'react'
 import { ApplicationProvider, Layout, Text } from '@ui-kitten/components'
 import * as eva from '@eva-design/eva'
 import { default as mapping } from './custom_ui_kitten.json'
-
+import Toast from 'react-native-toast-message'
 export default function App() {
   return (
     <NavigationContainer>
       <ApplicationProvider customMapping={mapping} {...eva} theme={eva.light}>
         <Provider store={store}>
           <AuthTrack />
+          <Toast />
         </Provider>
       </ApplicationProvider>
     </NavigationContainer>

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { URL_SERVER } from '../../helpers/UrlServer'
+import Toast from 'react-native-toast-message'
+
 const getData = async () => {
   const response: any = await AsyncStorage.getItem('user')
   return response
@@ -18,6 +20,11 @@ const login = async (userData: any) => {
 
   if (response.data) {
     if (response.data.message === 'success' && response.data.role === 'buyer') {
+      Toast.show({
+        type: 'success',
+        text1: 'Thông báo',
+        text2: 'Đăng nhập thành công',
+      })
       await AsyncStorage.setItem('user', JSON.stringify(response.data))
     }
   }

@@ -48,7 +48,7 @@ export const ProductPortfolioSlice = createSlice({
       .addCase(selectAllProductPortfolio.fulfilled, (state: initialState, action: { payload: TypeProductPortfolio[] }) => {
         state.isLoading = false
         state.isSuccess = true
-        state.arrayProductPortfolio = action.payload
+        state.arrayProductPortfolio = action.payload ?? []
       })
       .addCase(selectAllProductPortfolio.rejected, (state: initialState, action: { payload: TypeProductPortfolio[] }) => {
         state.isLoading = false

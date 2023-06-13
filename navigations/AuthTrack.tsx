@@ -9,38 +9,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import Login from '../src/screens/Login'
 import { checkLogin } from '../src/features/AuthSlice'
 import { AppDispatch, RootState } from '../store'
+import { selectFavorites } from '../src/features/FavoritesSlice'
 
 const Stack = createNativeStackNavigator()
 
 const AuthTrack = () => {
-  const [userState, setUserState] = React.useState<
-    | {
-        message: string
-        token: string
-        role: string
-        idUser: string
-        user: {
-          firstName: string
-          lastName: string
-          role: string
-          email: string
-          active: number
-        }
-      }
-    | undefined
-  >(undefined)
   const dispatch = useDispatch<AppDispatch>()
-  const { user: dataUser, isLoading, isError, isSuccess, message: messageAuth } = useSelector((state: any) => state.auth)
+  const { user: dataUser } = useSelector((state: any) => state.auth)
 
   React.useEffect(() => {
     dispatch(checkLogin())
-    setUserState(dataUser ? JSON.parse(dataUser) : undefined)
-  }, [dispatch, dataUser])
+  }, [dispatch])
 
   const navigation = useNavigation()
   return (
     <Stack.Navigator>
-      {userState ? (
+      {dataUser ? (
         <>
           {PublicRouter.map((item: TypeRouter, index: number) => {
             return (

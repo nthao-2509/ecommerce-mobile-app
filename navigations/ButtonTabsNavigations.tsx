@@ -5,11 +5,15 @@ import Icon from '@expo/vector-icons/Ionicons'
 import { RouteButtonTabs } from '../src/routers/BottomTabs'
 import Colors from '../src/modules/Colors'
 import { Badge } from '@react-native-material/core'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
 
 const Tabs = createBottomTabNavigator()
 
 const ButtonTabsNavigations = () => {
   const tabOffsetValue = useRef(new Animated.Value(0)).current
+  const { cartItems } = useSelector((state: RootState) => state.cart)
+
   function getWidth() {
     let width = Dimensions.get('window').width
 
@@ -31,7 +35,7 @@ const ButtonTabsNavigations = () => {
               return (
                 <>
                   <Icon name={tab.icon} size={25} color={focused ? Colors.blue : Colors.white} />
-                  {tab.badge && (
+                  {/* {tab.badge && cartItems && (
                     <Badge
                       style={{
                         position: 'absolute',
@@ -39,9 +43,9 @@ const ButtonTabsNavigations = () => {
                         left: 50,
                       }}
                       color='primary'
-                      label={4}
+                      label={JSON.parse(cartItems)?.length}
                     />
-                  )}
+                  )} */}
                 </>
               )
             },
